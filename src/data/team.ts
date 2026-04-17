@@ -6,7 +6,7 @@ export const teamInfo: TeamInfo = {
   founded: 2026,
   description:
     'La Bristol es un equipo de e-sports argentino fundado en 2026 con la misión de llevar el talento local a la élite competitiva internacional. Competimos en CS2 con una filosofía de equipo primero: la estrategia, la comunicación y el trabajo colectivo son nuestra mayor ventaja.',
-  games: ['CS2', 'R6', 'Rocket League', 'LOL', 'TFT'],
+  games: ['CS2', 'R6', 'Rocket League', 'LOL', 'TFT', 'Clsah Royale', 'Fortinte', 'Minecraft', 'FIFA'],
   socials: {
     twitter: '#',
     instagram: '#',
