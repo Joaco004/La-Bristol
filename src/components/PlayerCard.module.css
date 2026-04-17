@@ -1,0 +1,132 @@
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.9rem 0.75rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(0, 245, 212, 0.12);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color 0.2s;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.card:hover .avatar {
+  border-color: var(--accent);
+}
+
+.avatarGlow {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,245,212,0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.card:hover .avatarGlow {
+  opacity: 1;
+}
+
+.initials {
+  font-size: 1rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.nickname {
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.realName {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.role {
+  display: inline-block;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 20px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 0.15rem;
+}
+
+.game {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  transform: translateX(-6px);
+}
+
+.card:hover .arrow {
+  opacity: 1;
+  transform: translateX(0);
+}

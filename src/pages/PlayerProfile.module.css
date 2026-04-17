@@ -1,0 +1,261 @@
+.page {
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+.notFound {
+  padding-top: 120px;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.notFound h2 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: var(--text-muted);
+}
+
+.topBar {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 0;
+}
+
+.back {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  transition: color 0.2s;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.hero {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 100% at 20% 50%, rgba(0,245,212,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.heroInner {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.avatarWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  border: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--accent-glow);
+  overflow: hidden;
+}
+
+.avatarImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatarGlow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,245,212,0.12) 0%, transparent 70%);
+  z-index: -1;
+}
+
+.initials {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+
+.heroInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.role {
+  display: inline-block;
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.25rem 0.8rem;
+  border-radius: 20px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.nickname {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.realName {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.game {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.8rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.mainCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.8rem;
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+
+.bio {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.traits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.trait {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.traitDot {
+  color: var(--accent);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--bg3);
+  padding: 1rem;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 900px) {
+  .heroInner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .role, .game {
+    margin: 0 auto;
+  }
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .initials {
+    font-size: 2rem;
+  }
+}
