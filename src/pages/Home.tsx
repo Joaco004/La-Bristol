@@ -14,7 +14,10 @@ const Home = () => {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroBadge}>◈ E-Sports Team</div>
+          <div className={styles.heroBadge}>
+            <img src="/la-bristol-logo.png" alt="logo" className={styles.heroBadgeLogo} />
+            E-Sports Team
+          </div>
           <h1 className={styles.heroTitle}>
             <span className={styles.heroAccent}>{teamInfo.name}</span>
           </h1>

@@ -38,6 +38,9 @@
 }
 
 .heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -47,6 +50,14 @@
   padding: 0.35rem 1rem;
   border-radius: 20px;
   background: var(--accent-dim);
+}
+
+.heroBadgeLogo {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: brightness(1.1);
 }
 
 .heroTitle {
