@@ -14,10 +14,7 @@ const Home = () => {
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={`container ${styles.heroContent}`}>
-          <div className={styles.heroBadge}>
-            <img src="/la-bristol-logo.png" alt="logo" className={styles.heroBadgeLogo} />
-            E-Sports Team
-          </div>
+          <div className={styles.heroBadge}>E-Sports Team</div>
           <h1 className={styles.heroTitle}>
             <span className={styles.heroAccent}>{teamInfo.name}</span>
           </h1>
@@ -39,10 +36,13 @@ const Home = () => {
       {/* SOBRE EL EQUIPO */}
       <section className={`section ${styles.about}`}>
         <div className="container">
-          <h2 className="section-title">Sobre <span>nosotros</span></h2>
           <div className={styles.aboutGrid}>
-            <div className={styles.aboutText}>
-              <p>{teamInfo.description}</p>
+            <div className={styles.aboutLeft}>
+              <h2 className="section-title">Sobre <span>nosotros</span></h2>
+              <p className={styles.aboutText}>{teamInfo.description}</p>
+            </div>
+            <div className={styles.aboutLogoWrap}>
+              <img src="/la-bristol-logo.png" alt="La Bristol" className={styles.aboutLogo} />
             </div>
             <div className={styles.aboutMeta}>
               <div className={styles.metaItem}>

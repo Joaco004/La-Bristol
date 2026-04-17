@@ -22,12 +22,22 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.4rem;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text);
   transition: color 0.2s;
+}
+
+.logoImg {
+  height: 2.2rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(0, 245, 212, 0.3));
 }
 
 .logo:hover {

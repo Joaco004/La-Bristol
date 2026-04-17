@@ -16,6 +16,18 @@
     radial-gradient(ellipse 40% 40% at 80% 20%, rgba(0, 245, 212, 0.04) 0%, transparent 50%);
 }
 
+.heroBg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/la-bristol-logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 55%;
+  opacity: 0.04;
+  filter: grayscale(1);
+}
+
 .heroBg::after {
   content: '';
   position: absolute;
@@ -40,7 +52,6 @@
 .heroBadge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.15em;
@@ -52,13 +63,6 @@
   background: var(--accent-dim);
 }
 
-.heroBadgeLogo {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-  opacity: 0.85;
-  filter: brightness(1.1);
-}
 
 .heroTitle {
   font-size: clamp(5rem, 18vw, 14rem);
@@ -119,15 +123,43 @@
 
 .aboutGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 3rem;
   align-items: center;
+}
+
+.aboutLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 1rem;
+}
+
+.aboutLeft .section-title {
+  text-align: left;
 }
 
 .aboutText {
   font-size: 1.05rem;
   color: var(--text-muted);
   line-height: 1.8;
+}
+
+.aboutLogoWrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutLogo {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  border-radius: 16px;
+  padding: 12px;
+  filter: drop-shadow(0 0 18px rgba(0, 245, 212, 0.2));
 }
 
 .aboutMeta {
@@ -295,6 +327,19 @@
   .aboutGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+  .aboutLeft {
+    align-items: flex-start;
+    text-align: left;
+  }
+  .aboutLeft .section-title {
+    text-align: left;
+  }
+  .aboutLogoWrap {
+    order: 2;
+  }
+  .aboutMeta {
+    order: 3;
   }
   .playersGrid {
     grid-template-columns: repeat(2, 1fr);

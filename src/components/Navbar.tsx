@@ -18,7 +18,8 @@ const Navbar = () => {
     <header className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
       <div className={`container ${styles.inner}`}>
         <Link to="/" className={styles.logo} onClick={closeMenu}>
-          <span className={styles.logoAccent}>◈LBRL</span> 
+          <img src="/la-bristol-logo.png" alt="La Bristol" className={styles.logoImg} />
+          <span className={styles.logoAccent}>LBRL</span>
         </Link>
 
         <button
