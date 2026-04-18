@@ -23,7 +23,13 @@ const PlayerProfile = () => {
   const initials = player.nickname.slice(0, 2).toUpperCase();
 
   return (
-    <main className={styles.page}>
+    <main className={`${styles.page}${player.photo ? ` ${styles.hasBg}` : ''}`}>
+      {player.photo && (
+        <>
+          <img src={player.photo} alt="" aria-hidden className={styles.pageBg} style={{ objectPosition: player.photoPosition ?? 'center center' }} />
+          <div className={styles.pageBgOverlay} />
+        </>
+      )}
       <div className={styles.topBar}>
         <div className="container">
           <button className={styles.back} onClick={() => navigate('/team')}>

@@ -12,6 +12,19 @@ import agus from '../assets/agus.png';
 import pacho from '../assets/pacho.png';
 import maxi from '../assets/maxi.jpg';
 
+import joacophoto from '../assets/joaco-fondo.jpeg'
+import matephoto from '../assets/mate-fondo.jpeg'
+import totophoto from '../assets/toto-fondo.jpeg'
+import parraphoto from '../assets/parra-fondo.jpeg'
+import uriphoto from '../assets/uri-fondo.jpeg'
+import santiphoto from '../assets/santi-fondo.jpeg'
+//import juanphoto from '../assets/juan-fondo.jpeg'
+import pepephoto from '../assets/pepe-fondo.jpeg'
+//import matiphoto from '../assets/mati-fondo.jpeg'
+import agusphoto from '../assets/agus-fondo.jpeg'
+import pachophoto from '../assets/pacho-fondo.jpeg'
+//import maxiphoto from '../assets/maxi-fondo.jpeg'
+
 const players: Player[] = [
   {
     id: 'joaco',
@@ -23,6 +36,7 @@ const players: Player[] = [
     traits: ['Liderazgo táctico', 'Comunicación bajo presión', 'Visión de mapa completa', 'Adaptabilidad mid-round'],
     stats: { kd: 1.48, winrate: 64, hoursPlayed: 4200, tournamentsPlayed: 47 },
     image: joaco,
+    photo: joacophoto,
   },
   {
     id: 'toto',
@@ -34,6 +48,7 @@ const players: Player[] = [
     traits: ['Precisión extrema', 'Control de ángulos', 'BOT', 'Tranquilidad'],
     stats: { kd: 0.80, winrate: 61, hoursPlayed: 5800, tournamentsPlayed: 39 },
     image: toto,
+    photo: totophoto,
   },
   {
     id: 'uri',
@@ -45,6 +60,8 @@ const players: Player[] = [
     traits: ['Utility mastery', 'Sacrificio estratégico', 'Game sense', 'Comunicación constante'],
     stats: { kd: 1.85, winrate: 66, hoursPlayed: 3900, tournamentsPlayed: 52 },
     image: uri,
+    photo: uriphoto,
+    photoPosition: 'center 30%',
   },
   {
     id: 'mati',
@@ -56,6 +73,7 @@ const players: Player[] = [
     traits: ['Agressividad controlada', 'Velocidad de reacción', 'Aperturas consistentes', 'Resistencia mental'],
     stats: { kd: 1.28, winrate: 59, hoursPlayed: 4600, tournamentsPlayed: 41 },
     image: mati,
+    //photo: matiphoto,
   },
   {
     id: 'nacho',
@@ -67,6 +85,7 @@ const players: Player[] = [
     traits: ['Movimiento silencioso', 'Timing perfecto', 'Rotaciones inesperadas', 'Información táctica'],
     stats: { kd: 1.35, winrate: 63, hoursPlayed: 5100, tournamentsPlayed: 44 },
     image: pacho,
+    photo: pachophoto,
   },
   {
     id: 'parra',
@@ -78,6 +97,7 @@ const players: Player[] = [
     traits: ['Movimiento silencioso', 'Timing perfecto', 'Rotaciones inesperadas', 'Información táctica'],
     stats: { kd: 1.35, winrate: 63, hoursPlayed: 5100, tournamentsPlayed: 44 },
     image: parra,
+    photo: parraphoto,
   },
   {
     id: 'mate',
@@ -89,6 +109,7 @@ const players: Player[] = [
     traits: ['Aim instintivo', 'Reacciones de élite', 'Tilt instantáneo', 'Clutch en modo furia'],
     stats: { kd: 1.61, winrate: 58, hoursPlayed: 3100, tournamentsPlayed: 31 },
     image: mate,
+    photo: matephoto,
   },
   {
     id: 'juan',
@@ -100,6 +121,7 @@ const players: Player[] = [
     traits: ['Pensamiento táctico', 'Temperamento impredecible', 'Lectura de juego lenta pero precisa', 'Calma post-tilt'],
     stats: { kd: 1.29, winrate: 61, hoursPlayed: 2800, tournamentsPlayed: 28 },
     image: juan,
+    //photo: juanphoto,
   },
   {
     id: 'agus',
@@ -111,6 +133,7 @@ const players: Player[] = [
     traits: ['Aim mecánico brutal', 'Rotaciones cuestionables', 'Posicionamiento a la suerte', 'Headshots involuntarios'],
     stats: { kd: 1.54, winrate: 52, hoursPlayed: 2400, tournamentsPlayed: 22 },
     image: agus,
+    photo: agusphoto,
   },
   {
     id: 'pedro',
@@ -122,6 +145,7 @@ const players: Player[] = [
     traits: ['Creatividad sin límites', 'Decisiones impredecibles', 'Moral del equipo en alza', 'Trolleo de alto nivel'],
     stats: { kd: 0.98, winrate: 49, hoursPlayed: 1900, tournamentsPlayed: 19 },
     image: pepe,
+    photo: pepephoto,
   },
   {
     id: 'santicass',
@@ -133,6 +157,7 @@ const players: Player[] = [
     traits: ['IQ táctico fuera de escala', 'Gestión del tiempo perfecta', 'Nunca tilteado', 'Siempre un paso adelante'],
     stats: { kd: 1.42, winrate: 68, hoursPlayed: 3600, tournamentsPlayed: 41 },
     image: santi,
+    photo: santiphoto,
   },
   {
     id: 'maxi',
@@ -144,6 +169,7 @@ const players: Player[] = [
     traits: ['Inteligencia táctica alta', 'Nervios en clutch', 'Planificación detallada', 'Tranquilidad hasta que importa'],
     stats: { kd: 1.21, winrate: 55, hoursPlayed: 2600, tournamentsPlayed: 25 },
     image: maxi,
+    //photo: maxiphoto,
   },
 ];
 

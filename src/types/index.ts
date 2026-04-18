@@ -15,6 +15,8 @@ export interface Player {
   traits: string[];
   stats: PlayerStats;
   image?: string;
+  photo?: string;
+  photoPosition?: string;
 }
 
 export interface Product {
