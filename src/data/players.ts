@@ -18,12 +18,12 @@ import totophoto from '../assets/toto-fondo.jpeg'
 import parraphoto from '../assets/parra-fondo.jpeg'
 import uriphoto from '../assets/uri-fondo.jpeg'
 import santiphoto from '../assets/santi-fondo.jpeg'
-//import juanphoto from '../assets/juan-fondo.jpeg'
+import juanphoto from '../assets/juan-fondo.jpg'
 import pepephoto from '../assets/pepe-fondo.jpeg'
-//import matiphoto from '../assets/mati-fondo.jpeg'
+import matiphoto from '../assets/mati-fondo.jpeg'
 import agusphoto from '../assets/agus-fondo.jpeg'
 import pachophoto from '../assets/pacho-fondo.jpeg'
-//import maxiphoto from '../assets/maxi-fondo.jpeg'
+import maxiphoto from '../assets/maxi-fondo.jpeg'
 
 const players: Player[] = [
   {
@@ -73,7 +73,8 @@ const players: Player[] = [
     traits: ['Agressividad controlada', 'Velocidad de reacción', 'Aperturas consistentes', 'Resistencia mental'],
     stats: { kd: 1.28, winrate: 59, hoursPlayed: 4600, tournamentsPlayed: 41 },
     image: mati,
-    //photo: matiphoto,
+    photo: matiphoto,
+    photoPosition: 'center 15%',
   },
   {
     id: 'nacho',
@@ -121,7 +122,8 @@ const players: Player[] = [
     traits: ['Pensamiento táctico', 'Temperamento impredecible', 'Lectura de juego lenta pero precisa', 'Calma post-tilt'],
     stats: { kd: 1.29, winrate: 61, hoursPlayed: 2800, tournamentsPlayed: 28 },
     image: juan,
-    //photo: juanphoto,
+    photo: juanphoto,
+    photoPosition: 'center 10%',
   },
   {
     id: 'agus',
@@ -169,7 +171,8 @@ const players: Player[] = [
     traits: ['Inteligencia táctica alta', 'Nervios en clutch', 'Planificación detallada', 'Tranquilidad hasta que importa'],
     stats: { kd: 1.21, winrate: 55, hoursPlayed: 2600, tournamentsPlayed: 25 },
     image: maxi,
-    //photo: maxiphoto,
+    photo: maxiphoto,
+    photoPosition: 'center 10%',
   },
 ];
 
