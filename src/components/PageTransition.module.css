@@ -1,0 +1,12 @@
+.wrapper {
+  position: relative;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: var(--accent);
+  z-index: 9999;
+  pointer-events: none;
+  transform-origin: top center;
+}

@@ -1,10 +1,9 @@
 .card {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0.9rem 0.75rem;
+  border-radius: 6px;
+  padding: 1.1rem 0.85rem 0.9rem;
   cursor: pointer;
-  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,65 +11,76 @@
   gap: 0.5rem;
   position: relative;
   overflow: hidden;
+  transform-style: preserve-3d;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
 }
 
-.card::before {
-  content: '';
+.card:hover {
+  border-color: rgba(0, 245, 212, 0.5);
+  box-shadow: 0 12px 40px rgba(0, 245, 212, 0.1), 0 0 0 1px rgba(0, 245, 212, 0.08);
+}
+
+/* animated top border */
+.topBar {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 2px;
   background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover .topBar {
+  transform: scaleX(1);
+}
+
+/* mouse-follow glow */
+.mouseGlow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mx, 50%) var(--my, 50%),
+    rgba(0, 245, 212, 0.12) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s;
+  border-radius: inherit;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent);
-  box-shadow: 0 8px 30px rgba(0, 245, 212, 0.12);
-}
-
-.card:hover::before {
+.card:hover .mouseGlow {
   opacity: 1;
 }
 
 .avatar {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+  background: linear-gradient(135deg, #1a1a1a, #222);
   border: 2px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: border-color 0.2s;
+  transition: border-color 0.25s, box-shadow 0.25s;
   overflow: hidden;
   flex-shrink: 0;
 }
 
 .card:hover .avatar {
   border-color: var(--accent);
-}
-
-.avatarGlow {
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,245,212,0.15) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-
-.card:hover .avatarGlow {
-  opacity: 1;
+  box-shadow: 0 0 16px rgba(0, 245, 212, 0.3);
 }
 
 .initials {
-  font-size: 1rem;
-  font-weight: 900;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--accent);
   letter-spacing: 0.05em;
 }
@@ -89,14 +99,16 @@
 }
 
 .nickname {
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   color: var(--text);
+  text-transform: uppercase;
 }
 
 .realName {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
 }
 
@@ -104,26 +116,27 @@
   display: inline-block;
   background: var(--accent-dim);
   color: var(--accent);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   font-weight: 700;
-  padding: 0.15rem 0.5rem;
+  padding: 0.15rem 0.55rem;
   border-radius: 20px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
+  border: 1px solid rgba(0, 245, 212, 0.2);
 }
 
 .game {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--text-muted);
 }
 
 .arrow {
   color: var(--accent);
-  font-size: 1.2rem;
+  font-size: 1rem;
   opacity: 0;
-  transition: opacity 0.2s, transform 0.2s;
-  transform: translateX(-6px);
+  transition: opacity 0.2s, transform 0.25s;
+  transform: translateX(-8px);
 }
 
 .card:hover .arrow {

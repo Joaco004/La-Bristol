@@ -1,12 +1,15 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import PageTransition from './PageTransition';
 
 const Layout = () => {
   return (
     <>
       <Navbar />
-      <Outlet />
+      <PageTransition>
+        <Outlet />
+      </PageTransition>
       <Footer />
     </>
   );

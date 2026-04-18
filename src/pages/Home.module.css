@@ -1,4 +1,4 @@
-/* HERO */
+/* ── HERO ──────────────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -12,8 +12,9 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 40%, rgba(0, 245, 212, 0.06) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(0, 245, 212, 0.04) 0%, transparent 50%);
+    radial-gradient(ellipse 70% 55% at 50% 40%, rgba(0, 245, 212, 0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 35% at 80% 15%, rgba(0, 200, 212, 0.04) 0%, transparent 55%),
+    radial-gradient(ellipse 25% 25% at 15% 80%, rgba(0, 245, 212, 0.03) 0%, transparent 50%);
 }
 
 .heroBg::before {
@@ -23,19 +24,19 @@
   background-image: url('/la-bristol-logo.png');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 55%;
-  opacity: 0.04;
+  background-size: 50%;
+  opacity: 0.03;
   filter: grayscale(1);
 }
 
-.heroBg::after {
-  content: '';
+.heroGrid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0,245,212,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,245,212,0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+    linear-gradient(rgba(0,245,212,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,245,212,0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
 }
 
 .heroContent {
@@ -45,42 +46,83 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.6rem;
   padding-top: 5rem;
 }
 
 .heroBadge {
   display: inline-flex;
   align-items: center;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
+  gap: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--accent);
-  border: 1px solid var(--accent-dim);
-  padding: 0.35rem 1rem;
-  border-radius: 20px;
-  background: var(--accent-dim);
+  border: 1px solid rgba(0, 245, 212, 0.25);
+  padding: 0.35rem 1.1rem;
+  border-radius: 2px;
+  background: rgba(0, 245, 212, 0.06);
 }
 
+.heroBadgeDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
 
 .heroTitle {
-  font-size: clamp(5rem, 18vw, 14rem);
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 0.9;
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 20vw, 16rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  line-height: 0.88;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  perspective: 800px;
+  cursor: default;
+  animation: titleGlow 6s ease-in-out infinite;
+  animation-delay: 2.5s;
 }
 
-.heroAccent {
+@keyframes titleGlow {
+  0%, 100% { filter: drop-shadow(0 0 30px rgba(0, 245, 212, 0.25)); }
+  50% { filter: drop-shadow(0 0 60px rgba(0, 245, 212, 0.5)); }
+}
+
+.heroChar {
+  display: inline-block;
+  color: var(--text);
+  transform-origin: bottom center;
+}
+
+.heroCharAccent {
   color: var(--accent);
-  text-shadow: 0 0 80px rgba(0, 245, 212, 0.4);
+}
+
+.heroSpace {
+  display: inline-block;
+  width: 0.25em;
 }
 
 .heroTagline {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-family: var(--font);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--text-muted);
-  max-width: 480px;
+  max-width: 460px;
   font-style: italic;
+  letter-spacing: 0.02em;
 }
 
 .heroCtas {
@@ -88,7 +130,7 @@
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
 }
 
 .heroScroll {
@@ -103,9 +145,9 @@
 
 .heroScroll span {
   width: 1px;
-  height: 50px;
+  height: 52px;
   background: linear-gradient(to bottom, var(--accent), transparent);
-  animation: scrollLine 1.5s ease-in-out infinite;
+  animation: scrollLine 1.6s ease-in-out infinite;
 }
 
 @keyframes scrollLine {
@@ -114,7 +156,7 @@
   100% { opacity: 0; transform: scaleY(0); transform-origin: bottom; }
 }
 
-/* ABOUT */
+/* ── ABOUT ─────────────────────────────────────────────────────── */
 .about {
   background: var(--bg2);
   border-top: 1px solid var(--border);
@@ -133,109 +175,153 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  gap: 1rem;
-}
-
-.aboutLeft .section-title {
-  text-align: left;
+  gap: 1.2rem;
 }
 
 .aboutText {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  line-height: 1.8;
+  line-height: 1.85;
 }
 
 .aboutLogoWrap {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .aboutLogo {
-  width: 150px;
-  height: 150px;
+  width: 148px;
+  height: 148px;
   object-fit: contain;
-  border: 1px solid rgba(0, 245, 212, 0.25);
+  border: 1px solid rgba(0, 245, 212, 0.2);
   border-radius: 16px;
   padding: 12px;
-  filter: drop-shadow(0 0 18px rgba(0, 245, 212, 0.2));
+  filter: drop-shadow(0 0 20px rgba(0, 245, 212, 0.18));
+  position: relative;
+  z-index: 1;
+}
+
+.aboutLogoRing {
+  position: absolute;
+  inset: -8px;
+  border-radius: 24px;
+  border: 1px solid rgba(0, 245, 212, 0.08);
+  animation: ringPulse 3s ease-in-out infinite;
+}
+
+@keyframes ringPulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.04); opacity: 1; }
 }
 
 .aboutMeta {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .metaItem {
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
-  padding: 1rem 1.2rem;
+  padding: 0.9rem 1.1rem;
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 6px;
+  border-radius: 4px;
   border-left: 3px solid var(--accent);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.metaItem:hover {
+  background: rgba(0, 245, 212, 0.03);
+  border-color: rgba(0, 245, 212, 0.3);
 }
 
 .metaLabel {
-  font-size: 0.75rem;
-  font-weight: 700;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   color: var(--text-muted);
 }
 
 .metaValue {
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--accent);
+  letter-spacing: 0.04em;
 }
 
-/* ACHIEVEMENTS */
+/* ── ACHIEVEMENTS ──────────────────────────────────────────────── */
 .statsGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+  gap: 1.2rem;
 }
 
 .statCard {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 2rem 1.5rem;
+  border-radius: 6px;
+  padding: 2.2rem 1.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
-  transition: border-color 0.2s, transform 0.2s;
+  gap: 0.7rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+
+.statCard::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
 }
 
 .statCard:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
+  border-color: rgba(0, 245, 212, 0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 245, 212, 0.08);
+}
+
+.statCard:hover::before {
+  transform: scaleX(1);
 }
 
 .statIcon {
-  font-size: 2rem;
+  font-size: 2.2rem;
 }
 
 .statValue {
-  font-size: 2.5rem;
-  font-weight: 900;
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: 400;
   color: var(--accent);
   line-height: 1;
+  letter-spacing: 0.04em;
 }
 
 .statLabel {
-  font-size: 0.85rem;
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
+  font-weight: 600;
 }
 
-/* PLAYERS */
+/* ── PLAYERS ───────────────────────────────────────────────────── */
 .playersSection {
   background: var(--bg2);
   border-top: 1px solid var(--border);
@@ -253,7 +339,7 @@
   margin-top: 2.5rem;
 }
 
-/* MERCH */
+/* ── MERCH ─────────────────────────────────────────────────────── */
 .merchHeader {
   display: flex;
   justify-content: space-between;
@@ -272,15 +358,16 @@
 .merchCard {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   cursor: pointer;
 }
 
 .merchCard:hover {
-  border-color: var(--accent);
-  transform: translateY(-3px);
+  border-color: rgba(0, 245, 212, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 36px rgba(0, 245, 212, 0.09);
 }
 
 .merchImg {
@@ -289,7 +376,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.merchEmoji {
   font-size: 4rem;
+  filter: drop-shadow(0 4px 12px rgba(0,0,0,0.4));
+  transition: transform 0.25s;
+}
+
+.merchCard:hover .merchEmoji {
+  transform: scale(1.12);
 }
 
 .merchInfo {
@@ -300,27 +396,24 @@
 }
 
 .merchName {
+  font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .merchPrice {
-  font-size: 1rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
   color: var(--accent);
+  letter-spacing: 0.04em;
 }
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .playersGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .merchGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .playersGrid { grid-template-columns: repeat(3, 1fr); }
+  .merchGrid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
@@ -328,22 +421,7 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  .aboutLeft {
-    align-items: flex-start;
-    text-align: left;
-  }
-  .aboutLeft .section-title {
-    text-align: left;
-  }
-  .aboutLogoWrap {
-    order: 2;
-  }
-  .aboutMeta {
-    order: 3;
-  }
-  .playersGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .playersGrid { grid-template-columns: repeat(2, 1fr); }
   .merchHeader {
     flex-direction: column;
     align-items: flex-start;
@@ -351,22 +429,10 @@
 }
 
 @media (max-width: 480px) {
-  .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .playersGrid {
-    grid-template-columns: 1fr;
-  }
-  .merchGrid {
-    grid-template-columns: 1fr;
-  }
-  .heroCtas {
-    flex-direction: column;
-    width: 100%;
-  }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .playersGrid { grid-template-columns: 1fr; }
+  .merchGrid { grid-template-columns: 1fr; }
+  .heroCtas { flex-direction: column; width: 100%; }
   .heroCtas .btn-primary,
-  .heroCtas .btn-outline {
-    width: 100%;
-    text-align: center;
-  }
+  .heroCtas .btn-outline { width: 100%; text-align: center; }
 }
