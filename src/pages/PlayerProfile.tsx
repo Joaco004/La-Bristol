@@ -1,13 +1,35 @@
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import players from '../data/players';
+import type { Player } from '../types';
 import styles from './PlayerProfile.module.css';
+
+const API = import.meta.env.VITE_API_URL ?? 'http://localhost:3001';
 
 const PlayerProfile = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const player = players.find((p) => p.id === id);
+  const [player, setPlayer] = useState<Player | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  if (!player) {
+  useEffect(() => {
+    if (!id) return;
+    fetch(`${API}/api/players/${id}`)
+      .then((r) => { if (!r.ok) throw new Error('not_found'); return r.json(); })
+      .then(setPlayer)
+      .catch((e: Error) => setError(e.message))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) {
+    return (
+      <main className={styles.page}>
+        <p className={styles.loadingMsg}>Cargando jugador...</p>
+      </main>
+    );
+  }
+
+  if (error || !player) {
     return (
       <main className={styles.notFound}>
         <div className="container">

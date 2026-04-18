@@ -78,6 +78,18 @@
   justify-content: center;
 }
 
+.status {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.statusError {
+  color: #ff6b6b;
+  text-align: center;
+  padding: 3rem 0;
+}
+
 /* PRODUCT GRID */
 .grid {
   display: grid;

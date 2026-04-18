@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Team from './pages/Team';
 import PlayerProfile from './pages/PlayerProfile';
 import Merch from './pages/Merch';
+import Admin from './pages/Admin';
 import './styles/globals.css';
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: 'merch', element: <Merch /> },
     ],
   },
+  { path: '/admin-lbrl', element: <Admin /> },
 ]);
 
 createRoot(document.getElementById('root')!).render(

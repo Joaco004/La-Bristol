@@ -22,6 +22,12 @@
   pointer-events: none;
 }
 
+.loadingMsg {
+  padding: 6rem 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+
 .notFound {
   padding-top: 120px;
   min-height: 100vh;

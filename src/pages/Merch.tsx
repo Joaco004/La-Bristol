@@ -1,6 +1,7 @@
-import { useState } from 'react';
-import products from '../data/products';
+import { useState, useEffect } from 'react';
 import type { CartItem, Product } from '../types';
+
+const API = import.meta.env.VITE_API_URL ?? 'http://localhost:3001';
 import styles from './Merch.module.css';
 
 const categoryEmoji: Record<string, string> = {
@@ -63,8 +64,19 @@ const ProductCard = ({ product, onAddToCart }: { product: Product; onAddToCart: 
 };
 
 const Merch = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [productsLoading, setProductsLoading] = useState(true);
+  const [productsError, setProductsError] = useState<string | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  useEffect(() => {
+    fetch(`${API}/api/products`)
+      .then((r) => { if (!r.ok) throw new Error('Error al cargar productos'); return r.json(); })
+      .then(setProducts)
+      .catch((e: Error) => setProductsError(e.message))
+      .finally(() => setProductsLoading(false));
+  }, []);
 
   const addToCart = (product: Product) => {
     setCart((prev) => {
@@ -115,11 +127,15 @@ const Merch = () => {
 
       <section className="section">
         <div className="container">
-          <div className={styles.grid}>
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
-            ))}
-          </div>
+          {productsLoading && <p className={styles.status}>Cargando productos...</p>}
+          {productsError && <p className={styles.statusError}>{productsError}</p>}
+          {!productsLoading && !productsError && (
+            <div className={styles.grid}>
+              {products.map((product) => (
+                <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
