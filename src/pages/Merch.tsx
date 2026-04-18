@@ -9,6 +9,59 @@ const categoryEmoji: Record<string, string> = {
   Accesorios: '🎩',
 };
 
+const ProductCard = ({ product, onAddToCart }: { product: Product; onAddToCart: (p: Product) => void }) => {
+  const [imgIndex, setImgIndex] = useState(0);
+  const [imgError, setImgError] = useState(false);
+  const emoji = categoryEmoji[product.category] ?? '📦';
+  const hasMultiple = product.images.length > 1;
+  const currentSrc = product.images[imgIndex] ?? '';
+
+  const prev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setImgError(false);
+    setImgIndex((i) => (i - 1 + product.images.length) % product.images.length);
+  };
+
+  const next = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setImgError(false);
+    setImgIndex((i) => (i + 1) % product.images.length);
+  };
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.imgWrap}>
+        {currentSrc && !imgError
+          ? <img src={currentSrc} alt={product.name} className={styles.carouselImg} onError={() => setImgError(true)} />
+          : <span className={styles.emoji}>{emoji}</span>
+        }
+        <span className={styles.categoryTag}>{product.category}</span>
+        {hasMultiple && (
+          <>
+            <button className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`} onClick={prev}>‹</button>
+            <button className={`${styles.carouselArrow} ${styles.carouselArrowRight}`} onClick={next}>›</button>
+          </>
+        )}
+        {hasMultiple && (
+          <div className={styles.carouselDots}>
+            {product.images.map((_, i) => (
+              <span key={i} className={`${styles.carouselDot}${i === imgIndex ? ` ${styles.carouselDotActive}` : ''}`} />
+            ))}
+          </div>
+        )}
+      </div>
+      <div className={styles.info}>
+        <h3 className={styles.name}>{product.name}</h3>
+        <p className={styles.desc}>{product.description}</p>
+        <div className={styles.bottom}>
+          <span className={styles.price}>${product.price.toLocaleString('es-AR')}</span>
+          <button className={styles.addBtn} onClick={() => onAddToCart(product)}>+ Agregar</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const Merch = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -64,25 +117,7 @@ const Merch = () => {
         <div className="container">
           <div className={styles.grid}>
             {products.map((product) => (
-              <div key={product.id} className={styles.card}>
-                <div className={styles.imgWrap}>
-                  <span className={styles.emoji}>{categoryEmoji[product.category] ?? '📦'}</span>
-                  <span className={styles.categoryTag}>{product.category}</span>
-                </div>
-                <div className={styles.info}>
-                  <h3 className={styles.name}>{product.name}</h3>
-                  <p className={styles.desc}>{product.description}</p>
-                  <div className={styles.bottom}>
-                    <span className={styles.price}>${product.price.toLocaleString('es-AR')}</span>
-                    <button
-                      className={styles.addBtn}
-                      onClick={() => addToCart(product)}
-                    >
-                      + Agregar
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <ProductCard key={product.id} product={product} onAddToCart={addToCart} />
             ))}
           </div>
         </div>

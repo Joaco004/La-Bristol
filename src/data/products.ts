@@ -6,6 +6,7 @@ const products: Product[] = [
     name: 'Remera Oficial LBRL',
     price: 4500,
     category: 'Ropa',
+    images: [''],
     description: 'Remera negra con logo NOVA bordado. 100% algodón premium.',
   },
   {
@@ -13,6 +14,7 @@ const products: Product[] = [
     name: 'Buzo LBRL Gaming',
     price: 8900,
     category: 'Ropa',
+    images: [''],
     description: 'Buzo con capucha, logo frente y espalda. Tela fleece premium.',
   },
   {
@@ -20,6 +22,7 @@ const products: Product[] = [
     name: 'Gorra LBRL Snapback',
     price: 3200,
     category: 'Accesorios',
+    images: [''],
     description: 'Gorra snapback ajustable con bordado 3D del logo.',
   },
   {
@@ -27,6 +30,7 @@ const products: Product[] = [
     name: 'Mousepad XL LBRL',
     price: 2800,
     category: 'Gaming',
+    images: [''],
     description: 'Mousepad extendido 90x40cm. Superficie de control premium.',
   },
   {
@@ -34,6 +38,7 @@ const products: Product[] = [
     name: 'Remera LBRL Blanca',
     price: 4500,
     category: 'Ropa',
+    images: [''],
     description: 'Remera blanca edición especial. Logo en tono oscuro.',
   },
   {
@@ -41,6 +46,7 @@ const products: Product[] = [
     name: 'Buzo Zippado LBRL',
     price: 9500,
     category: 'Ropa',
+    images: [''],
     description: 'Buzo con cierre central. Bolsillos laterales. Logo en pecho.',
   },
   {
@@ -48,6 +54,7 @@ const products: Product[] = [
     name: 'Pack de Stickers',
     price: 800,
     category: 'Accesorios',
+    images: [''],
     description: '10 stickers holográficos con logos y diseños del equipo.',
   },
   {
@@ -55,6 +62,7 @@ const products: Product[] = [
     name: 'Deskpad LBRL Pro',
     price: 5500,
     category: 'Gaming',
+    images: [''],
     description: 'Deskpad de escritorio 120x60cm. Base antideslizante.',
   },
 ];

@@ -126,6 +126,67 @@
   text-transform: uppercase;
 }
 
+.carouselImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carouselArrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2;
+}
+
+.imgWrap:hover .carouselArrow {
+  opacity: 1;
+}
+
+.carouselArrowLeft {
+  left: 0.5rem;
+}
+
+.carouselArrowRight {
+  right: 0.5rem;
+}
+
+.carouselDots {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.35rem;
+  z-index: 2;
+}
+
+.carouselDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transition: background 0.2s;
+}
+
+.carouselDotActive {
+  background: var(--accent);
+}
+
 .info {
   padding: 1.2rem;
   display: flex;
