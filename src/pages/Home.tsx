@@ -212,17 +212,21 @@ const Home = () => {
             onMouseEnter={handleTitleEnter}
             onMouseLeave={handleTitleLeave}
           >
-            {'La'.split('').map((char, i) => (
-              <span key={`a${i}`} data-char className={styles.heroChar}>
-                {char}
-              </span>
-            ))}
-            <span data-char className={`${styles.heroChar} ${styles.heroSpace}`}>{'\u00A0'}</span>
-            {'Bristol'.split('').map((char, i) => (
-              <span key={`b${i}`} data-char className={`${styles.heroChar} ${styles.heroCharAccent}`}>
-                {char}
-              </span>
-            ))}
+             <span className={styles.heroWord}>
+              {'La'.split('').map((char, i) => (
+                <span key={`a${i}`} data-char className={styles.heroChar}>
+                  {char}
+                </span>
+              ))}
+            </span>
+            <span className={styles.heroSpace}>{' '}</span>
+            <span className={styles.heroWord}>
+              {'Bristol'.split('').map((char, i) => (
+                <span key={`b${i}`} data-char className={`${styles.heroChar} ${styles.heroCharAccent}`}>
+                  {char}
+                </span>
+              ))}
+            </span>
           </h1>
           <p ref={heroTaglineRef} className={styles.heroTagline}>{teamInfo.tagline}</p>
           <div ref={heroCtasRef} className={styles.heroCtas}>

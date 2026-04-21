@@ -111,6 +111,11 @@
   color: var(--accent);
 }
 
+.heroWord {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .heroSpace {
   display: inline-block;
   width: 0.25em;
@@ -426,6 +431,9 @@
     flex-direction: column;
     align-items: flex-start;
   }
+  .heroTitle {
+    font-size: clamp(3.5rem, 18vw, 6rem);
+  }
 }
 
 @media (max-width: 480px) {
@@ -435,4 +443,13 @@
   .heroCtas { flex-direction: column; width: 100%; }
   .heroCtas .btn-primary,
   .heroCtas .btn-outline { width: 100%; text-align: center; }
+  .heroTitle {
+    font-size: clamp(2.8rem, 16vw, 4.5rem);
+  }
+  .heroChar {
+    display: inline;
+  }
+  .heroWord {
+    display: inline;
+  }
 }
